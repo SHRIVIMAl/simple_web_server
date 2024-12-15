@@ -21,47 +21,23 @@ Serving the HTML pages.
 Testing the webserver.
 
 # PROGRAM:
-<html>
-    <head>
-        laptop configuration 
-    </head>
-    <body> 
-       <table border="5"> 
-        <tr>
-            <th>Configuration</th>
-            <th>Description</th>
-        </tr>
-        <tr>
-           <td>processor</td>
-           <td>13th Gen Intel(R) Core(TM) i5-1335U, 1300 Mhz, 10 Core(s),12 Logical Processor</td>
-        </tr>
-        <tr>
-            <td>OS name</td>
-            <td>Microsoft  Windows 11 Home Single Language</td>
-        </tr>
-        <tr>
-            <td>memory</td>
-            <td>350</td>
-        </tr>
-        <tr>
-            <td>RAM</td>
-            <td>16GB</td>
-        </tr>
-        <TR>
-            <td>System manufacture</td>
-            <td>LENOVA</td>
-        </TR>
-        <tr>
-            <td>OS manufacture</td>
-            <td>Microsoft Corporation</td>
-        </tr>
-        
-    </table>
-    </body>
-    </html>
-# OUTPUT:
-![Screenshot 2024-12-08 041112](https://github.com/user-attachments/assets/9a89d28e-360a-4785-9b55-f1f1ecdd68e2)
+```
+""" from http.server import HTTPServer,BaseHTTPRequestHandler
+content=''' <!doctype html>
+<title> My Web Server</title>
 
+        </table>
+'''
+class MyServer(BaseHTTPRequestHandler): def do_GET(self): print("Get request
+received...") self.send_response(200) self.send_header("content-type", "text/html")
+self.end_headers() self.wfile.write(content.encode())
+print("This is my webserver") server_address =('',8000) httpd =
+HTTPServer(server_address,MyServer) httpd.serve_forever() """
+```
+            
+# OUTPUT:
+![357670fc-4851-4b95-9c44-e834bd79fd7b](https://github.com/user-attachments/assets/48d4c1bd-746a-41a3-8103-392f30421f28)
 
 # RESULT:
 The program for implementing simple webserver is executed successfully.
+![ff5bd7c8-c90a-4fcb-ac28-19d7ed508ea6](https://github.com/user-attachments/assets/60258497-2a16-4154-8616-754509d716d5)
